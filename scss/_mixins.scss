@@ -1,0 +1,64 @@
+// scss/_mixins.scss
+
+@mixin dashboard-common {
+  font-family: $main-font;
+  background-color: $background-color;
+  color: $text-color;
+
+  header {
+    background-color: $primary-color;
+    color: white;
+    padding: $spacing-medium;
+
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+  }
+
+  main {
+    padding: $spacing-large;
+  }
+
+  #logout-button {
+    background-color: $secondary-color;
+    color: $text-color;
+    border: none;
+    padding: $spacing-small $spacing-medium;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+    }
+  }
+}
+
+@mixin button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: #{$mobile-breakpoint}) { @content; }
+  } @else if $breakpoint == tablet {
+    @media (min-width: #{$mobile-breakpoint + 1}) and (max-width: #{$tablet-breakpoint}) { @content; }
+  } @else if $breakpoint == desktop {
+    @media (min-width: #{$tablet-breakpoint + 1}) { @content; }
+  }
+}
+    

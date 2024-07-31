@@ -1,0 +1,9 @@
+  // scss/pages/_coach-dashboard.scss
+  .coach-dashboard {
+    @include dashboard-common;
+  
+    header {
+      background-color: $coach-color;
+    }
+  }
+  

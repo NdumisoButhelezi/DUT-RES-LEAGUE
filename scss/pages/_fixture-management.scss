@@ -1,0 +1,180 @@
+.fixture-management {
+    @extend .club-management;
+  
+    #fixture-form {
+      display: grid;
+      gap: $spacing-medium;
+      margin-bottom: $spacing-large;
+  
+      select, input, button {
+        padding: $spacing-small;
+        border-radius: 5px;
+        border: 1px solid $border-color;
+        font-size: 16px;
+      }
+  
+      button {
+        @extend .btn;
+        @extend .btn-primary;
+        justify-self: start;
+      }
+    }
+  
+    #fixtures-list {
+      display: grid;
+      gap: $spacing-medium;
+  
+      .fixture-item {
+        background-color: $background-color;
+        padding: $spacing-medium;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+        h3 {
+          color: $primary-color;
+          margin-top: 0;
+          margin-bottom: $spacing-small;
+        }
+  
+        p {
+          margin: $spacing-small 0;
+        }
+  
+        .button-group {
+          display: flex;
+          gap: $spacing-small;
+          margin-top: $spacing-medium;
+  
+          button {
+            @extend .btn;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  
+    #group-management-section,
+    #standings-section,
+    #knockout-section {
+      background-color: white;
+      padding: $spacing-medium;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: $spacing-large;
+  
+      h2 {
+        color: $primary-color;
+        border-bottom: 2px solid $secondary-color;
+        padding-bottom: $spacing-small;
+        margin-top: 0;
+        margin-bottom: $spacing-medium;
+      }
+    }
+  
+    #group-form {
+      display: flex;
+      gap: $spacing-small;
+      margin-bottom: $spacing-medium;
+  
+      input {
+        flex-grow: 1;
+        padding: $spacing-small;
+        border-radius: 5px;
+        border: 1px solid $border-color;
+      }
+    }
+  
+    .group-item {
+      background-color: $background-color;
+      padding: $spacing-small;
+      border-radius: 5px;
+      margin-bottom: $spacing-small;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      h3 {
+        margin: 0;
+      }
+    }
+  
+    .group-standings {
+      margin-bottom: $spacing-large;
+  
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+  
+        th, td {
+          padding: $spacing-small;
+          text-align: left;
+          border-bottom: 1px solid $border-color;
+        }
+  
+        th {
+          background-color: $primary-color;
+          color: white;
+        }
+  
+        tr:nth-child(even) {
+          background-color: $background-color;
+        }
+      }
+    }
+  
+    .knockout-stage {
+      margin-bottom: $spacing-large;
+  
+      h3 {
+        color: $primary-color;
+        border-bottom: 1px solid $secondary-color;
+        padding-bottom: $spacing-small;
+        margin-bottom: $spacing-medium;
+      }
+    }
+  
+    .knockout-fixture {
+      background-color: $background-color;
+      padding: $spacing-small;
+      border-radius: 5px;
+      margin-bottom: $spacing-small;
+  
+      p {
+        margin: $spacing-small 0;
+      }
+  
+      button {
+        margin-top: $spacing-small;
+      }
+    }
+  
+    @include respond-to(mobile) {
+      #fixture-form,
+      #group-form {
+        grid-template-columns: 1fr;
+      }
+  
+      #fixtures-list {
+        grid-template-columns: 1fr;
+      }
+  
+      .group-item {
+        flex-direction: column;
+        align-items: flex-start;
+  
+        button {
+          margin-top: $spacing-small;
+        }
+      }
+  
+      .group-standings {
+        overflow-x: auto;
+  
+        table {
+          min-width: 500px;
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,33 @@
+.auth-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: $spacing-large;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+    h2 {
+      margin-bottom: $spacing-medium;
+      text-align: center;
+    }
+  
+    .form-group {
+      margin-bottom: $spacing-medium;
+  
+      label {
+        display: block;
+        margin-bottom: $spacing-small;
+      }
+  
+      input {
+        width: 100%;
+        padding: $spacing-small;
+        border: 1px solid darken($background-color, 10%);
+        border-radius: 4px;
+      }
+    }
+    button {
+      @include button;
+    }
+  }
+  

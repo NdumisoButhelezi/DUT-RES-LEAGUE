@@ -1,0 +1,7 @@
+  // scss/pages/_user-dashboard.scss
+  .user-dashboard {
+    @include dashboard-common;
+  
+    // User dashboard uses the default primary color for the header
+  }
+  

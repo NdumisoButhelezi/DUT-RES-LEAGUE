@@ -1,0 +1,21 @@
+// scss/main.scss
+
+// Import variables and mixins first
+@import 'variables';
+@import 'mixins';
+
+// Import base styles
+@import 'base';
+@import 'layout';
+@import 'responsive';
+
+// Import all page-specific styles
+@import 'pages/login';
+@import 'pages/register';
+@import 'pages/admin-dashboard';
+@import 'pages/sport-admin-dashboard';
+@import 'pages/coach-dashboard';
+@import 'pages/player-dashboard';
+@import 'pages/user-dashboard';
+@import 'pages/club-management';
+@import 'pages/fixture-management';

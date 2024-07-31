@@ -1,0 +1,151 @@
+// scss/pages/_club-management.scss
+
+.club-management {
+    @include dashboard-common;
+  
+    .btn {
+      display: inline-block;
+      padding: $spacing-small $spacing-medium;
+      border-radius: 5px;
+      font-size: 16px;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      
+      i {
+        margin-right: $spacing-small;
+      }
+    }
+  
+    .btn-primary {
+      background-color: $primary-color;
+      color: white;
+  
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  
+    .btn-secondary {
+      background-color: $secondary-color;
+      color: $text-color;
+  
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+    }
+  
+    .btn-danger {
+      background-color: #dc3545;
+      color: white;
+  
+      &:hover {
+        background-color: darken(#dc3545, 10%);
+      }
+    }
+  
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      .back-link {
+        font-size: 14px;
+      }
+    }
+  
+    #club-management-content {
+      display: grid;
+      gap: $spacing-large;
+    }
+  
+    #add-club-section,
+    #clubs-list-section,
+    #players-section {
+      background-color: white;
+      padding: $spacing-medium;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+      h2 {
+        color: $primary-color;
+        border-bottom: 2px solid $secondary-color;
+        padding-bottom: $spacing-small;
+        margin-top: 0;
+        margin-bottom: $spacing-medium;
+      }
+    }
+  
+    #add-club-section {
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-medium;
+  
+        input {
+          padding: $spacing-small;
+          border-radius: 5px;
+          border: 1px solid $border-color;
+        }
+  
+        button {
+          align-self: flex-start;
+        }
+      }
+    }
+  
+    #clubs-list,
+    #players-container {
+      display: grid;
+      gap: $spacing-medium;
+  
+      .club-item,
+      .club-players {
+        background-color: $background-color;
+        padding: $spacing-medium;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+        h3 {
+          color: $primary-color;
+          margin-top: 0;
+          margin-bottom: $spacing-small;
+        }
+  
+        p {
+          margin: $spacing-small 0;
+        }
+  
+        .btn {
+          margin-right: $spacing-small;
+          font-size: 14px;
+        }
+      }
+    }
+  
+    #logout-button {
+      position: fixed;
+      bottom: $spacing-medium;
+      right: $spacing-medium;
+    }
+  
+    @include respond-to(mobile) {
+      #club-management-content {
+        grid-template-columns: 1fr;
+      }
+  
+      #clubs-list,
+      #players-container {
+        grid-template-columns: 1fr;
+      }
+  
+      #logout-button {
+        position: static;
+        margin-top: $spacing-medium;
+        width: 100%;
+      }
+    }
+  }
+  

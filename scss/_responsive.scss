@@ -1,0 +1,17 @@
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == mobile {
+      @media (max-width: #{$mobile-breakpoint}) { @content; }
+    } @else if $breakpoint == tablet {
+      @media (min-width: #{$mobile-breakpoint + 1}) and (max-width: #{$tablet-breakpoint}) { @content; }
+    } @else if $breakpoint == desktop {
+      @media (min-width: #{$tablet-breakpoint + 1}) { @content; }
+    }
+  }
+  
+  // Example usage
+  header {
+    @include respond-to(mobile) {
+      padding: $spacing-small;
+    }
+  }
+  

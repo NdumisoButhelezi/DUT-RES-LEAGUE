@@ -1,0 +1,12 @@
+// scss/pages/_admin-dashboard.scss
+.admin-dashboard {
+    @include dashboard-common;
+  
+    header {
+      background-color: $admin-color;
+    }
+  }
+  
+
+  
+

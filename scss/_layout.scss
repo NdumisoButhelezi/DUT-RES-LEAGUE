@@ -1,0 +1,35 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $spacing-medium;
+  }
+  
+  header {
+    background-color: $primary-color;
+    color: white;
+    padding: $spacing-medium;
+  
+    nav ul {
+      display: flex;
+      justify-content: space-around;
+  
+      li a {
+        color: white;
+      }
+    }
+  }
+  
+  main {
+    padding: $spacing-large 0;
+  }
+  
+  footer {
+    background-color: $primary-color;
+    color: white;
+    text-align: center;
+    padding: $spacing-medium;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  

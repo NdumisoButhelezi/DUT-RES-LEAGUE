@@ -1,0 +1,489 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333333;
+  line-height: 1.6;
+}
+
+a {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header {
+  background-color: #0056b3;
+  color: white;
+  padding: 1rem;
+}
+header nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+header nav ul li a {
+  color: white;
+}
+
+main {
+  padding: 2rem 0;
+}
+
+footer {
+  background-color: #0056b3;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 0.5rem;
+  }
+}
+
+.auth-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.auth-form h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.auth-form .form-group {
+  margin-bottom: 1rem;
+}
+.auth-form .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.auth-form .form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+}
+.auth-form button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+.auth-form button:hover {
+  background-color: #003d80;
+}
+
+.auth-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.auth-form h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.auth-form .form-group {
+  margin-bottom: 1rem;
+}
+.auth-form .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.auth-form .form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+}
+.auth-form button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+.auth-form button:hover {
+  background-color: #003d80;
+}
+
+.admin-dashboard {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333333;
+}
+.admin-dashboard header {
+  background-color: #0056b3;
+  color: white;
+  padding: 1rem;
+}
+.admin-dashboard header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.admin-dashboard main {
+  padding: 2rem;
+}
+.admin-dashboard #logout-button {
+  background-color: #ffd700;
+  color: #333333;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+.admin-dashboard #logout-button:hover {
+  background-color: #ccac00;
+}
+.admin-dashboard header {
+  background-color: #ff4500;
+}
+
+.sport-admin-dashboard {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333333;
+  min-height: 100vh;
+  background-color: #f0f4f8;
+}
+.sport-admin-dashboard header {
+  background-color: #0056b3;
+  color: white;
+  padding: 1rem;
+}
+.sport-admin-dashboard header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.sport-admin-dashboard main {
+  padding: 2rem;
+}
+.sport-admin-dashboard #logout-button {
+  background-color: #ffd700;
+  color: #333333;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+.sport-admin-dashboard #logout-button:hover {
+  background-color: #ccac00;
+}
+.sport-admin-dashboard .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.sport-admin-dashboard header {
+  background-color: #0056b3;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.sport-admin-dashboard header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+.sport-admin-dashboard .bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+.sport-admin-dashboard .bento-item {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  -webkit-transition: -webkit-transform 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: -webkit-transform 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, -webkit-transform 0.3s ease, -webkit-box-shadow 0.3s ease;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.sport-admin-dashboard .bento-item:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  -webkit-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+.sport-admin-dashboard .bento-item h3 {
+  margin-top: 0;
+  color: #0056b3;
+  border-bottom: 2px solid #ffd700;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.sport-admin-dashboard .bento-item h3 i {
+  margin-right: 0.5rem;
+}
+.sport-admin-dashboard #welcome-section {
+  grid-column: 1/-1;
+  text-align: center;
+  background-color: #ffd700;
+  color: white;
+}
+.sport-admin-dashboard #welcome-section h2 {
+  color: white;
+  border-bottom: none;
+}
+.sport-admin-dashboard .dashboard-link {
+  display: inline-block;
+  background-color: #0056b3;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  margin-top: auto;
+  text-align: center;
+}
+.sport-admin-dashboard .dashboard-link:hover {
+  background-color: #003d80;
+}
+.sport-admin-dashboard #logout-button {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: #ffd700;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+}
+.sport-admin-dashboard #logout-button i {
+  margin-right: 0.5rem;
+}
+.sport-admin-dashboard #logout-button:hover {
+  background-color: #ccac00;
+}
+@media (max-width: 768px) {
+  .sport-admin-dashboard .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .sport-admin-dashboard #logout-button {
+    position: static;
+    margin-top: 1rem;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.coach-dashboard {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333333;
+}
+.coach-dashboard header {
+  background-color: #0056b3;
+  color: white;
+  padding: 1rem;
+}
+.coach-dashboard header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.coach-dashboard main {
+  padding: 2rem;
+}
+.coach-dashboard #logout-button {
+  background-color: #ffd700;
+  color: #333333;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+.coach-dashboard #logout-button:hover {
+  background-color: #ccac00;
+}
+.coach-dashboard header {
+  background-color: #4169e1;
+}
+
+.player-dashboard {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333333;
+}
+.player-dashboard header {
+  background-color: #0056b3;
+  color: white;
+  padding: 1rem;
+}
+.player-dashboard header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.player-dashboard main {
+  padding: 2rem;
+}
+.player-dashboard #logout-button {
+  background-color: #ffd700;
+  color: #333333;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+.player-dashboard #logout-button:hover {
+  background-color: #ccac00;
+}
+.player-dashboard header {
+  background-color: #ff69b4;
+}
+
+.user-dashboard {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333333;
+}
+.user-dashboard header {
+  background-color: #0056b3;
+  color: white;
+  padding: 1rem;
+}
+.user-dashboard header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.user-dashboard main {
+  padding: 2rem;
+}
+.user-dashboard #logout-button {
+  background-color: #ffd700;
+  color: #333333;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+.user-dashboard #logout-button:hover {
+  background-color: #ccac00;
+}
+
+.club-management #club-management-content {
+  display: grid;
+  gap: 2rem;
+}
+.club-management #add-club-section {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.club-management #add-club-section form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+.club-management #add-club-section form input, .club-management #add-club-section form button {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.club-management #add-club-section form button {
+  background-color: #0056b3;
+  color: white;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+.club-management #add-club-section form button:hover {
+  background-color: #003d80;
+}
+.club-management #clubs-list, .club-management #players-container {
+  display: grid;
+  gap: 1rem;
+}
+.club-management #clubs-list .club-item, .club-management #clubs-list .club-players, .club-management #players-container .club-item, .club-management #players-container .club-players {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

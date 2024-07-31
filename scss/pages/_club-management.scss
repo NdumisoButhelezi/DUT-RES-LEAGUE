@@ -1,0 +1,165 @@
+// scss/pages/_club-management.scss
+
+.club-management {
+    @include dashboard-common;
+  
+    #club-management-content {
+      display: grid;
+      gap: $spacing-large;
+    }
+  
+    #add-club-section,
+    #clubs-list-section,
+    #players-section {
+      background-color: white;
+      padding: $spacing-medium;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+      h2 {
+        color: $primary-color;
+        border-bottom: 2px solid $secondary-color;
+        padding-bottom: $spacing-small;
+        margin-top: 0;
+        margin-bottom: $spacing-medium;
+      }
+    }
+  
+    
+    #add-club-section {
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-medium;
+  
+        input, button {
+          padding: $spacing-small;
+          border-radius: 5px;
+          border: 1px solid $border-color;
+        }
+  
+        button {
+          @include button;
+          background-color: $primary-color;
+          color: white;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &:hover {
+            background-color: darken($primary-color, 10%);
+          }
+        }
+      }
+    }
+
+    header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-large;
+
+    .back-link {
+      padding: $spacing-small $spacing-medium;
+      font-size: 16px;
+      font-weight: bold;
+      color: $text-color;
+      background-color: $secondary-color;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+
+      i {
+        margin-right: $spacing-small;
+      }
+    }
+
+    
+  
+    #clubs-list,
+    #players-container {
+      display: grid;
+      gap: $spacing-medium;
+  
+      .club-item,
+      .club-players {
+        background-color: $background-color;
+        padding: $spacing-medium;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+        h3 {
+          color: $primary-color;
+          margin-top: 0;
+          margin-bottom: $spacing-small;
+        }
+  
+        p {
+          margin: $spacing-small 0;
+        }
+  
+        button {
+          @include button;
+          margin-right: $spacing-small;
+          padding: $spacing-small $spacing-medium;
+          font-size: 14px;
+        }
+      }
+    }
+  
+    #players-container {
+      .club-players {
+        ul {
+          list-style-type: none;
+          padding-left: 0;
+          margin: $spacing-small 0;
+  
+          li {
+            margin-bottom: $spacing-small;
+          }
+        }
+      }
+    }
+  
+    @include respond-to(mobile) {
+      #club-management-content {
+        grid-template-columns: 1fr;
+      }
+  
+      #clubs-list,
+      #players-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-large;
+
+    .back-link {
+      padding: $spacing-small $spacing-medium;
+      font-size: 16px;
+      font-weight: bold;
+      color: $text-color;
+      background-color: $secondary-color;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+
+      i {
+        margin-right: $spacing-small;
+      }
+    }
+}
+
+}

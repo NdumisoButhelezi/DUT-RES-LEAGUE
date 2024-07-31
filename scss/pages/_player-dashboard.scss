@@ -1,0 +1,10 @@
+
+  // scss/pages/_player-dashboard.scss
+  .player-dashboard {
+    @include dashboard-common;
+  
+    header {
+      background-color: $player-color;
+    }
+  }
+  

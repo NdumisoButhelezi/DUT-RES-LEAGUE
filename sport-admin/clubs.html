@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Management - DUT RES LEAGUE</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="sport-admin-dashboard club-management">
+    <div class="container">
+        <header>
+            <h1>Club Management</h1>
+            <a href="dashboard.html" class="back-link btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+        </header>
+        
+        <main id="club-management-content">
+            <section id="add-club-section">
+                <h2>Add New Club</h2>
+                <form id="club-form">
+                    <input type="text" id="club-name" placeholder="Club Name" required>
+                    <input type="text" id="coach-id" placeholder="Coach ID" required>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Add Club</button>
+                </form>
+            </section>
+
+            <section id="clubs-list-section">
+                <h2>Existing Clubs</h2>
+                <div id="clubs-list"></div>
+            </section>
+
+            <section id="players-section">
+                <h2>Players by Club</h2>
+                <div id="players-container"></div>
+            </section>
+        </main>
+
+        <button id="logout-button" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module" src="../js/club-management.js"></script>
+</body>
+</html>
