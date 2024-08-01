@@ -3,59 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sport Admin Dashboard - DUT RES LEAGUE</title>
+    <title>Sports Admin Dashboard - DUT RES LEAGUE</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body class="sport-admin-dashboard">
-    <div class="container">
-        <header>
+    <header class="site-header">
+        <div class="container">
             <h1 id="dashboard-title">Sport Admin Dashboard</h1>
-        </header>
-        
-        <main id="dashboard-content" class="bento-grid">
-            <section class="bento-item" id="welcome-section">
-                <h2>Welcome, Sport Admin!</h2>
-                <p>Manage sports activities and events for DUT RES LEAGUE</p>
+            <button id="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+           <nav class="main-nav">
+            <ul id="nav-list">
+                <!-- Navigation items will be inserted here by JavaScript -->
+            </ul>
+        </nav>
+        </div>
+    </header>
+    
+    <main class="site-main">
+        <div class="container">
+            <section class="bento-grid">
+                <div class="bento-item">
+                    <h2><i class="fas fa-users"></i> Club Management</h2>
+                    <a href="clubs.html" class="dashboard-link">Manage Clubs</a>
+                </div>
+                <div class="bento-item">
+                    <h2><i class="fas fa-calendar-alt"></i> Fixture Management</h2>
+                    <a href="fixtures.html" class="dashboard-link">Manage Fixtures</a>
+                </div>
+                <div class="bento-item">
+                    <h2><i class="fas fa-running"></i> Player Management</h2>
+                    <a href="players.html" class="dashboard-link">Manage Players</a>
+                </div>
+                <div class="bento-item">
+                    <h2><i class="fas fa-trophy"></i> League Standings</h2>
+                    <a href="standings.html" class="dashboard-link">View Standings</a>
+                </div>
+                <div class="bento-item">
+                    <h2><i class="fas fa-chart-bar"></i> Reports</h2>
+                    <a href="reports.html" class="dashboard-link">Generate Reports</a>
+                </div>
             </section>
-
-            <section class="bento-item" id="club-management">
-                <h3><i class="fas fa-users"></i> Club Management</h3>
-                <a href="clubs.html" class="dashboard-link">Manage Clubs</a>
-            </section>
-
-            <section class="bento-item" id="fixture-management">
-                <h3><i class="fas fa-calendar-alt"></i> Fixture Management</h3>
-                <a href="fixtures.html" class="dashboard-link">Manage Fixtures</a>
-            </section>
-
-            <section class="bento-item" id="player-management">
-                <h3><i class="fas fa-running"></i> Player Management</h3>
-                <a href="players.html" class="dashboard-link">Manage Players</a>
-            </section>
-
-            <section class="bento-item" id="league-standings">
-                <h3><i class="fas fa-trophy"></i> League Standings</h3>
-                <a href="standings.html" class="dashboard-link">View Standings</a>
-            </section>
-
-            <section class="bento-item" id="reports">
-                <h3><i class="fas fa-chart-bar"></i> Reports</h3>
-                <a href="reports.html" class="dashboard-link">Generate Reports</a>
-            </section>
-
-            <section class="bento-item" id="settings">
-                <h3><i class="fas fa-cog"></i> Settings</h3>
-                <a href="settings.html" class="dashboard-link">Manage Settings</a>
-            </section>
-        </main>
-
-        <button id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</button>
-    </div>
+        </div>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 DUT RES LEAGUE. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script type="module" src="../js/firebase-config.js"></script>
     <script type="module" src="../js/auth.js"></script>
     <script type="module" src="../js/main.js"></script>
-    <script type="module" src="../js/club-management.js"></script>
+    <script type="module" src="../js/dashboard.js"></script>
 </body>
 </html>

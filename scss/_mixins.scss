@@ -1,12 +1,13 @@
 // scss/_mixins.scss
+// _mixins.scss
 
-@mixin dashboard-common {
+@mixin dashboard-common($role-color) {
   font-family: $main-font;
   background-color: $background-color;
   color: $text-color;
 
   header {
-    background-color: $primary-color;
+    background-color: $role-color;
     color: white;
     padding: $spacing-medium;
 
@@ -34,21 +35,21 @@
   }
 }
 
-@mixin button {
+@mixin button($bg-color: $primary-color, $text-color: white) {
   display: inline-block;
-  padding: 10px 20px;
+  padding: $spacing-small $spacing-medium;
   font-size: 16px;
   text-align: center;
   text-decoration: none;
-  background-color: $primary-color;
-  color: white;
+  background-color: $bg-color;
+  color: $text-color;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: darken($primary-color, 10%);
+    background-color: darken($bg-color, 10%);
   }
 }
 
@@ -61,4 +62,3 @@
     @media (min-width: #{$tablet-breakpoint + 1}) { @content; }
   }
 }
-    

@@ -1,11 +1,11 @@
-// dashboard.js
+import { logoutUser } from './auth.js';
 
 function setDashboardTitle() {
+    console.log('Setting dashboard title');
     const titleElement = document.getElementById('dashboard-title');
-    const body = document.body;
     if (titleElement) {
         const path = window.location.pathname;
-        console.log('Current path:', path); // Debug log
+        console.log('Current path:', path);
         let role = 'User';
         let dashboardClass = 'user-dashboard';
         
@@ -23,98 +23,180 @@ function setDashboardTitle() {
             dashboardClass = 'player-dashboard';
         }
         
-        console.log('Detected role:', role); // Debug log
+        console.log('Detected role:', role);
+        console.log('Dashboard class:', dashboardClass);
+        
         titleElement.textContent = `${role} Dashboard`;
-        body.classList.add(dashboardClass);
+        document.body.classList.add(dashboardClass);
+        console.log('Dashboard title set and class added to body');
+    } else {
+        console.error('Dashboard title element not found');
     }
 }
 
-function loadDashboardContent() {
-    const contentElement = document.getElementById('dashboard-content');
-    if (contentElement) {
+function setupNavigation() {
+    console.log('Setting up navigation');
+    const navElement = document.getElementById('nav-list');
+    console.log('Nav element:', navElement);
+    if (navElement) {
         const path = window.location.pathname;
-        console.log('Loading content for path:', path); // Debug log
-        let content = '';
+        console.log('Current path:', path);
+        let navItems = [];
 
-        if (path.includes('/sport-admin/')) {
-            content = `
-                <h2>Welcome, Sport Admin!</h2>
-                <p>Manage sports activities and events.</p>
-                <ul>
-                    <li>Schedule Games</li>
-                    <li>Manage Teams</li>
-                    <li>View League Standings</li>
-                </ul>
-            `;
+        // Role-specific navigation items
+        if (path.includes('/sport-admin/') || path.includes('/sports-admin/')) {
+            console.log('Detected sport admin path');
+            navItems = [
+                { href: 'dashboard.html', icon: 'fa-home', text: 'Home' },
+                { href: 'clubs.html', icon: 'fa-users', text: 'Clubs' },
+                { href: 'fixtures.html', icon: 'fa-calendar-alt', text: 'Fixtures' },
+                { href: 'players.html', icon: 'fa-running', text: 'Players' },
+                { href: 'standings.html', icon: 'fa-trophy', text: 'Standings' },
+                 // { href: '#', icon: 'fa-sign-out-alt', text: 'Logout', id: 'logout-button' }
+            ];
         } else if (path.includes('/admin/')) {
-            content = `
-                <h2>Welcome, Admin!</h2>
-                <p>Here you can manage the entire system.</p>
-                <ul>
-                    <li>Manage Users</li>
-                    <li>System Settings</li>
-                    <li>View Reports</li>
-                </ul>
-            `;
+            console.log('Detected admin path');
+            navItems = [
+                { href: 'dashboard.html', icon: 'fa-home', text: 'Home' },
+                { href: 'users.html', icon: 'fa-users', text: 'Manage Users' },
+                { href: 'settings.html', icon: 'fa-cog', text: 'System Settings' },
+                { href: 'reports.html', icon: 'fa-chart-bar', text: 'View Reports' },
+                { href: '#', icon: 'fa-sign-out-alt', text: 'Logout', id: 'logout-button' }
+            ];
         } else if (path.includes('/coach/')) {
-            content = `
-                <h2>Welcome, Coach!</h2>
-                <p>Manage your team and view schedules.</p>
-                <ul>
-                    <li>Team Roster</li>
-                    <li>Practice Schedule</li>
-                    <li>Game Schedule</li>
-                </ul>
-            `;
+            console.log('Detected coach path');
+            navItems = [
+                { href: 'dashboard.html', icon: 'fa-home', text: 'Home' },
+                { href: 'team.html', icon: 'fa-users', text: 'Team Roster' },
+                { href: 'practice.html', icon: 'fa-calendar-alt', text: 'Practice Schedule' },
+                { href: 'games.html', icon: 'fa-trophy', text: 'Game Schedule' },
+                { href: '#', icon: 'fa-sign-out-alt', text: 'Logout', id: 'logout-button' }
+            ];
         } else if (path.includes('/player/')) {
-            content = `
-                <h2>Welcome, Player!</h2>
-                <p>View your schedule and team information.</p>
-                <ul>
-                    <li>My Schedule</li>
-                    <li>Team Information</li>
-                    <li>Personal Stats</li>
-                </ul>
-            `;
+            console.log('Detected player path');
+            navItems = [
+                { href: 'dashboard.html', icon: 'fa-home', text: 'Home' },
+                { href: 'schedule.html', icon: 'fa-calendar-alt', text: 'My Schedule' },
+                { href: 'team.html', icon: 'fa-users', text: 'Team Information' },
+                { href: 'stats.html', icon: 'fa-chart-line', text: 'Personal Stats' },
+                { href: '#', icon: 'fa-sign-out-alt', text: 'Logout', id: 'logout-button' }
+            ];
         } else {
-            content = `
-                <h2>Welcome, User!</h2>
-                <p>View general information about the league.</p>
-                <ul>
-                    <li>League Schedule</li>
-                    <li>Team Standings</li>
-                    <li>News and Updates</li>
-                </ul>
-            `;
+            console.log('No specific role detected, using default navigation');
+            navItems = [
+                { href: 'dashboard.html', icon: 'fa-home', text: 'Home' },
+                { href: 'schedule.html', icon: 'fa-calendar-alt', text: 'League Schedule' },
+                { href: 'standings.html', icon: 'fa-trophy', text: 'Team Standings' },
+                { href: 'news.html', icon: 'fa-newspaper', text: 'News and Updates' },
+                { href: '#', icon: 'fa-sign-out-alt', text: 'Logout', id: 'logout-button' }
+            ];
         }
 
-        console.log('Content to be inserted:', content); // Debug log
-        contentElement.innerHTML = content;
+        console.log('Navigation items:', navItems);
+
+        // Generate navigation HTML
+        navElement.innerHTML = navItems.map(item => `
+            <li>
+                <a href="${item.href}" ${item.id ? `id="${item.id}"` : ''}>
+                    <i class="fas ${item.icon}"></i> ${item.text}
+                </a>
+            </li>
+        `).join('');
+
+        console.log('Navigation HTML set');
+
+        // Setup logout functionality
+        setupLogout();
     } else {
-        console.error('Dashboard content element not found'); // Debug log
+        console.error('Navigation list element not found');
     }
 }
 
 function setupLogout() {
+    console.log('Setting up logout functionality');
     const logoutButton = document.getElementById('logout-button');
+    console.log('Logout button:', logoutButton);
     if (logoutButton) {
-        logoutButton.addEventListener('click', () => {
-            // Call your logout function here
-            console.log('Logout clicked');
-            // For example: auth.logoutUser();
+        // Add text to the button for better visibility
+        logoutButton.innerHTML = '<i class="fas fa-sign-out-alt"></i> Logout';
+        
+        // Add hover effect
+        logoutButton.addEventListener('mouseenter', () => {
+            logoutButton.style.backgroundColor = '#ff4d4d';
         });
+        logoutButton.addEventListener('mouseleave', () => {
+            logoutButton.style.backgroundColor = '';
+        });
+
+        logoutButton.addEventListener('click', (e) => {
+            console.log('Logout button clicked');
+            e.preventDefault();
+            // Add a confirmation dialog
+            if (confirm('Are you sure you want to logout?')) {
+                logoutUser()
+                    .then(() => {
+                        console.log('Logout successful, redirecting to index.html');
+                        window.location.href = '/index.html';
+                    })
+                    .catch((error) => {
+                        console.error('Logout error:', error);
+                        alert('Logout failed. Please try again.');
+                    });
+            }
+        });
+        console.log('Logout event listeners added');
+    } else {
+        console.error('Logout button not found');
+    }
+}
+
+function setupMobileMenu() {
+    console.log('Setting up mobile menu');
+    const menuToggle = document.getElementById('menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', () => {
+            console.log('Mobile menu toggled');
+            mainNav.classList.toggle('show');
+        });
+
+        // Add logout option to mobile menu
+        const mobileLogoutItem = document.createElement('li');
+        mobileLogoutItem.innerHTML = '<a href="#" id="mobile-logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>';
+        mainNav.querySelector('ul').appendChild(mobileLogoutItem);
+
+        // Setup logout functionality for mobile
+        const mobileLogoutButton = document.getElementById('mobile-logout-button');
+        if (mobileLogoutButton) {
+            mobileLogoutButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                logoutUser()
+                    .then(() => {
+                        console.log('Logout successful, redirecting to index.html');
+                        window.location.href = '/index.html';
+                    })
+                    .catch((error) => {
+                        console.error('Logout error:', error);
+                    });
+            });
+        }
+
+        console.log('Mobile menu and logout option set up');
+    } else {
+        console.error('Mobile menu elements not found');
     }
 }
 
 function initDashboard() {
-    console.log('Initializing dashboard'); // Debug log
+    console.log('Initializing dashboard');
     setDashboardTitle();
-    loadDashboardContent();
-    setupLogout();
+    setupNavigation();
+    setupMobileMenu();
+    console.log('Dashboard initialization complete');
 }
 
-// Call initDashboard when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM fully loaded'); // Debug log
+    console.log('DOM content loaded, initializing dashboard');
     initDashboard();
 });

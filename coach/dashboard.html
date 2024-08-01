@@ -3,19 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - DUT RES LEAGUE</title>
+    <title>Coach Dashboard - DUT RES LEAGUE</title>
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-    <header>
-        <h1 id="dashboard-title">coach Dashboard</h1>
+<body class="coach-dashboard">
+    <header class="site-header">
+        <div class="container">
+            <h1 id="dashboard-title">Coach Dashboard</h1>
+            <nav class="main-nav">
+                <ul id="nav-list">
+                    <!-- Navigation items will be inserted here by JavaScript -->
+                </ul>
+            </nav>
+        </div>
     </header>
     
-    <main id="dashboard-content">
-        <!-- Content will be loaded here by JavaScript -->
+    <main class="site-main">
+        <div class="container">
+            <section class="bento-grid">
+                <div class="bento-item">
+                    <h2><i class="fas fa-users"></i> Team Roster</h2>
+                    <!-- Add team roster content -->
+                </div>
+                <div class="bento-item">
+                    <h2><i class="fas fa-calendar-alt"></i> Practice Schedule</h2>
+                    <!-- Add practice schedule content -->
+                </div>
+                <div class="bento-item">
+                    <h2><i class="fas fa-trophy"></i> Game Schedule</h2>
+                    <!-- Add game schedule content -->
+                </div>
+                <div class="bento-item">
+                    <h2><i class="fas fa-chart-line"></i> Team Performance</h2>
+                    <!-- Add team performance content -->
+                </div>
+            </section>
+        </div>
     </main>
 
-    <button id="logout-button">Logout</button>
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2023 DUT RES LEAGUE. All rights reserved.</p>
+           
+    </footer>
 
     <script type="module" src="../js/firebase-config.js"></script>
     <script type="module" src="../js/auth.js"></script>

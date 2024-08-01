@@ -1,151 +1,163 @@
-// scss/pages/_club-management.scss
+.sport-admin-dashboard {
+  @include dashboard-common($sport-admin-color);
 
-.club-management {
-    @include dashboard-common;
-  
-    .btn {
-      display: inline-block;
-      padding: $spacing-small $spacing-medium;
-      border-radius: 5px;
-      font-size: 16px;
-      text-decoration: none;
-      text-align: center;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: none;
-      
-      i {
-        margin-right: $spacing-small;
-      }
-    }
-  
-    .btn-primary {
-      background-color: $primary-color;
-      color: white;
-  
-      &:hover {
-        background-color: darken($primary-color, 10%);
-      }
-    }
-  
-    .btn-secondary {
-      background-color: $secondary-color;
-      color: $text-color;
-  
-      &:hover {
-        background-color: darken($secondary-color, 10%);
-      }
-    }
-  
-    .btn-danger {
-      background-color: #dc3545;
-      color: white;
-  
-      &:hover {
-        background-color: darken(#dc3545, 10%);
-      }
-    }
-  
-    header {
+  .site-header {
+    background-color: $primary-color;
+    color: $white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-  
-      .back-link {
-        font-size: 14px;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    #menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+
+      @include respond-to(mobile) {
+        display: block;
       }
     }
-  
-    #club-management-content {
-      display: grid;
-      gap: $spacing-large;
-    }
-  
-    #add-club-section,
-    #clubs-list-section,
-    #players-section {
-      background-color: white;
-      padding: $spacing-medium;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
-      h2 {
-        color: $primary-color;
-        border-bottom: 2px solid $secondary-color;
-        padding-bottom: $spacing-small;
-        margin-top: 0;
-        margin-bottom: $spacing-medium;
-      }
-    }
-  
-    #add-club-section {
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: $spacing-medium;
-  
-        input {
-          padding: $spacing-small;
-          border-radius: 5px;
-          border: 1px solid $border-color;
-        }
-  
-        button {
-          align-self: flex-start;
-        }
-      }
-    }
-  
-    #clubs-list,
-    #players-container {
-      display: grid;
-      gap: $spacing-medium;
-  
-      .club-item,
-      .club-players {
-        background-color: $background-color;
-        padding: $spacing-medium;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
-        h3 {
-          color: $primary-color;
-          margin-top: 0;
-          margin-bottom: $spacing-small;
-        }
-  
-        p {
-          margin: $spacing-small 0;
-        }
-  
-        .btn {
-          margin-right: $spacing-small;
-          font-size: 14px;
-        }
-      }
-    }
-  
-    #logout-button {
-      position: fixed;
-      bottom: $spacing-medium;
-      right: $spacing-medium;
-    }
-  
-    @include respond-to(mobile) {
-      #club-management-content {
-        grid-template-columns: 1fr;
-      }
-  
-      #clubs-list,
-      #players-container {
-        grid-template-columns: 1fr;
-      }
-  
-      #logout-button {
-        position: static;
-        margin-top: $spacing-medium;
+
+    .main-nav {
+      flex-grow: 1;
+      margin-left: 2rem;
+
+      @include respond-to(mobile) {
         width: 100%;
+        margin-left: 0;
+        margin-top: $spacing-small;
+        display: none;
+
+        &.show {
+          display: block;
+        }
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+
+        @include respond-to(mobile) {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+
+      li {
+        margin: 0 $spacing-small;
+
+        @include respond-to(mobile) {
+          margin: $spacing-small 0;
+          width: 100%;
+        }
+      }
+
+      a {
+        color: $white;
+        text-decoration: none;
+        padding: $spacing-small $spacing-medium;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        display: block;
+
+        &:hover {
+          background-color: rgba($white, 0.1);
+        }
+      }
+
+      #logout-button {
+        background-color: transparent;
+        border: 1px solid $white;
+        color: $white;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        font-weight: bold;
+        padding: $spacing-small $spacing-medium;
+        display: inline-block;
+        margin-left: $spacing-small;
+
+        &:hover {
+          background-color: $white;
+          color: $primary-color;
+        }
+
+        @include respond-to(mobile) {
+          display: none;
+        }
       }
     }
   }
-  
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-medium;
+
+    @include respond-to(mobile) {
+      grid-template-columns: 1fr;
+    }
+
+    @include respond-to(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .bento-item {
+    background-color: $white;
+    padding: $spacing-medium;
+    border-radius: 8px;
+    box-shadow: $box-shadow;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    h2 {
+      color: $sport-admin-color;
+      margin-top: 0;
+      margin-bottom: $spacing-small;
+      font-size: 1.2rem;
+    }
+
+    .dashboard-link {
+      @include button($sport-admin-color);
+      margin-top: $spacing-small;
+    }
+  }
+}
+
+// Ensure the navigation is always visible on larger screens
+@media (min-width: #{$mobile-breakpoint + 1}) {
+  .sport-admin-dashboard {
+    .site-header {
+      .main-nav {
+        display: flex !important;
+        justify-content: flex-end;
+
+        #logout-button {
+          display: inline-block !important;
+        }
+      }
+    }
+  }
+}

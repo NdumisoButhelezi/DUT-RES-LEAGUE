@@ -3,19 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - DUT RES LEAGUE</title>
+    <title>User Dashboard - DUT RES LEAGUE</title>
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-    <header>
-        <h1 id="dashboard-title">user Dashboard</h1>
+<body class="user-dashboard">
+    <header class="site-header">
+        <div class="container">
+            <h1 id="dashboard-title">User Dashboard</h1>
+            <nav>
+                <!-- Add navigation items if needed -->
+            </nav>
+        </div>
     </header>
     
-    <main id="dashboard-content">
-        <!-- Content will be loaded here by JavaScript -->
+    <main class="site-main">
+        <div class="container">
+            <section class="bento-grid">
+                <div class="bento-item">
+                    <h2><i class="fas fa-calendar-alt"></i> League Schedule</h2>
+                    <!-- Add league schedule content -->
+                </div>
+                <div class="bento-item">
+                    <h2><i class="fas fa-trophy"></i> Team Standings</h2>
+                    <!-- Add team standings content -->
+                </div>
+                <div class="bento-item">
+                    <h2><i class="fas fa-newspaper"></i> News and Updates</h2>
+                    <!-- Add news and updates content -->
+                </div>
+                <div class="bento-item">
+                    <h2><i class="fas fa-info-circle"></i> League Information</h2>
+                    <!-- Add league information content -->
+                </div>
+            </section>
+        </div>
     </main>
 
-    <button id="logout-button">Logout</button>
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2023 DUT RES LEAGUE. All rights reserved.</p>
+            <button id="logout-button" class="btn btn-secondary"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </footer>
 
     <script type="module" src="../js/firebase-config.js"></script>
     <script type="module" src="../js/auth.js"></script>

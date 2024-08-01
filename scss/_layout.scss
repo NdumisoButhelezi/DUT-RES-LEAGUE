@@ -1,35 +1,59 @@
+// _layout.scss
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $main-font;
+  background-color: $background-color;
+  color: $text-color;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: $spacing-medium;
-  }
-  
-  header {
-    background-color: $primary-color;
-    color: white;
-    padding: $spacing-medium;
-  
-    nav ul {
-      display: flex;
-      justify-content: space-around;
-  
-      li a {
-        color: white;
-      }
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-medium;
+}
+
+header {
+  background-color: $primary-color;
+  color: white;
+  padding: $spacing-medium;
+
+  nav ul {
+    display: flex;
+    justify-content: space-around;
+
+    li a {
+      color: white;
     }
   }
-  
-  main {
-    padding: $spacing-large 0;
-  }
-  
-  footer {
-    background-color: $primary-color;
-    color: white;
-    text-align: center;
-    padding: $spacing-medium;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  
+}
+
+main {
+  flex: 1;
+  padding: $spacing-large 0;
+}
+
+footer {
+  background-color: $primary-color;
+  color: white;
+  text-align: center;
+  padding: $spacing-medium;
+}
