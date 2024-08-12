@@ -11,7 +11,9 @@ export const ROLES = {
   export const SPORT_ADMINS = [
     'sportadmin1@dut.ac.za',
     'sportadmin2@dut.ac.za',
-    'sportadmin3@dut.ac.za'
+    'sportadmin3@dut.ac.za',
+    'sportadmin4@dut.ac.za',
+    'sportadmin5@dut.ac.za'
     // Add more sport admin emails as needed
   ];
   
