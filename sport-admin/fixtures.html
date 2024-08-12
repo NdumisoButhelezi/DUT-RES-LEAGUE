@@ -3,31 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixture Management - DUT RES LEAGUE</title>
-    <link rel="stylesheet" href="../scss/main.css">
+    <title>League Management - DUT RES LEAGUE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="sport-admin-dashboard fixture-management">
+<body>
     <div class="container">
         <header>
-            <h1>Fixture Management</h1>
-            <a href="dashboard.html" class="back-link btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+            <h1>League Management</h1>
         </header>
         
-        <main id="fixture-management-content">
-            <section id="group-management-section">
+        <main>
+            <section id="group-management">
                 <h2>Group Management</h2>
                 <form id="group-form">
                     <input type="text" id="group-name" placeholder="Group Name" required>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Add Group</button>
+                    <button type="submit">Create Group</button>
                 </form>
                 <div id="groups-list"></div>
             </section>
 
-            <section id="add-fixture-section">
-                <h2>Add New Fixture</h2>
+            <section id="team-management">
+                <h2>Team Management</h2>
+                <form id="team-form">
+                    <input type="text" id="team-name" placeholder="Team Name" required>
+                    <select id="team-group" required>
+                        <option value="">Select Group</option>
+                    </select>
+                    <button type="submit">Create Team</button>
+                </form>
+                <div id="teams-list"></div>
+            </section>
+
+            <section id="fixture-management">
+                <h2>Fixture Management</h2>
                 <form id="fixture-form">
-                    <select id="group-select" required>
+                    <select id="fixture-group" required>
                         <option value="">Select Group</option>
                     </select>
                     <select id="home-team" required>
@@ -38,31 +48,13 @@
                     </select>
                     <input type="datetime-local" id="fixture-date" required>
                     <input type="text" id="venue" placeholder="Venue" required>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Add Fixture</button>
+                    <button type="submit">Create Fixture</button>
                 </form>
-            </section>
-
-            <section id="fixtures-list-section">
-                <h2>Existing Fixtures</h2>
                 <div id="fixtures-list"></div>
             </section>
-
-            <section id="standings-section">
-                <h2>Group Standings</h2>
-                <div id="standings-list"></div>
-            </section>
-
-            <section id="knockout-section">
-                <h2>Knockout Stages</h2>
-                <div id="knockout-fixtures"></div>
-            </section>
         </main>
-
-        <button id="logout-button" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</button>
     </div>
 
-    <script type="module" src="../js/firebase-config.js"></script>
-    <script type="module" src="../js/auth.js"></script>
-    <script type="module" src="../js/fixture-management.js"></script>
+    <script type="module" src="league-management.js"></script>
 </body>
 </html>

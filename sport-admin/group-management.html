@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Management - DUT RES LEAGUE</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="sport-admin-dashboard group-management">
+    <div class="container">
+        <header>
+            <h1>Group Management</h1>
+            <a href="dashboard.html" class="back-link btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+        </header>
+        
+        <main id="group-management-content">
+            <section id="add-group-section">
+                <h2>Create New Group</h2>
+                <form id="group-form">
+                    <input type="text" id="group-name" placeholder="Group Name" required>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Create Group</button>
+                </form>
+            </section>
+
+            <section id="groups-list-section">
+                <h2>Existing Groups</h2>
+                <div id="groups-list"></div>
+            </section>
+        </main>
+
+        <button id="logout-button" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module" src="../js/group-management.js"></script>
+</body>
+</html>
