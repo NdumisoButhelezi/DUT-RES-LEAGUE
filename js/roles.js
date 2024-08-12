@@ -13,7 +13,8 @@ export const ROLES = {
     'sportadmin2@dut.ac.za',
     'sportadmin3@dut.ac.za',
     'sportadmin4@dut.ac.za',
-    'sportadmin5@dut.ac.za'
+    'sportadmin5@dut.ac.za',
+    'sportadmin6@dut.ac.za'
     // Add more sport admin emails as needed
   ];
   
