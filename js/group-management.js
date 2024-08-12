@@ -1,6 +1,6 @@
 import { db } from './firebase-config.js';
 import { 
-    collection, addDoc, getDocs, doc, updateDoc, deleteDoc, serverTimestamp, arrayUnion, arrayRemove, query, where
+    collection, addDoc, getDocs, doc, updateDoc, deleteDoc, serverTimestamp, arrayUnion, arrayRemove
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -104,6 +104,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!teamId) return;
 
         try {
+            // Check if the team is already assigned to another group
+            const groupsSnapshot = await getDocs(collection(db, "groups"));
+            let isTeamAssigned = false;
+
+            groupsSnapshot.forEach((groupDoc) => {
+                const group = groupDoc.data();
+                if (group.teams.includes(teamId)) {
+                    isTeamAssigned = true;
+                }
+            });
+
+            if (isTeamAssigned) {
+                showMessage("This team is already assigned to another group.", true);
+                return;
+            }
+
             const groupRef = doc(db, "groups", groupId);
             await updateDoc(groupRef, {
                 teams: arrayUnion(teamId)

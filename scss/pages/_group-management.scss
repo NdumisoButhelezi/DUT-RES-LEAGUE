@@ -1,0 +1,198 @@
+.group-management {
+    @include dashboard-common;
+  
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: $spacing-medium;
+    }
+
+    .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust minmax value as needed */
+        gap: 20px; /* Space between grid items */
+        padding: 20px; /* Padding around the grid */
+    }
+    
+    .group-item {
+        background-color: #f8f9fa; /* Light grey background */
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border: 1px solid #dee2e6; /* Light border */
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .bento-grid {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Smaller min-width for smaller screens */
+        }
+    }
+    
+  
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: $spacing-large;
+  
+      h1 {
+        color: $primary-color;
+        margin: 0;
+      }
+  
+      .back-link {
+        padding: $spacing-small $spacing-medium;
+        font-size: 16px;
+        font-weight: bold;
+        color: $text-color;
+        background-color: $secondary-color;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: darken($secondary-color, 10%);
+        }
+  
+        i {
+          margin-right: $spacing-small;
+        }
+      }
+    }
+  
+    main {
+      display: grid;
+      gap: $spacing-large;
+  
+      .card {
+        background-color: white;
+        padding: $spacing-medium;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+        h2 {
+          color: $primary-color;
+          border-bottom: 2px solid $secondary-color;
+          padding-bottom: $spacing-small;
+          margin-top: 0;
+          margin-bottom: $spacing-medium;
+        }
+      }
+  
+      #add-group-section {
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: $spacing-medium;
+  
+          input, button {
+            padding: $spacing-small;
+            border-radius: 5px;
+            border: 1px solid $border-color;
+          }
+  
+          button {
+            @include button;
+            background-color: $primary-color;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+  
+            &:hover {
+              background-color: darken($primary-color, 10%);
+            }
+  
+            i {
+              margin-right: $spacing-small;
+            }
+          }
+        }
+      }
+  
+      #groups-list-section {
+        /* Assuming the Bento Grid is applied to the #groups-list */
+#groups-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.group-item {
+    background-color: #add8e6; /* Light blue background for cardholders */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border: 1px solid #ddd; /* Light border */
+}
+
+.group-item h3 {
+    margin-bottom: 10px;
+}
+
+.group-item p {
+    margin-bottom: 10px;
+}
+
+.group-item select, .group-item button {
+    margin-bottom: 10px;
+}
+
+.group-item button {
+    padding: 10px 20px; /* Good size for buttons */
+    background-color: #1f64ad; /* Example blue color */
+    color: white;
+    border: round;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px; /* Adjust font size for readability */
+}
+
+.group-item button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #groups-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust for smaller screens */
+    }
+}
+
+      }
+    }
+  
+    #logout-button {
+      display: block;
+      margin: $spacing-large auto 0;
+      padding: $spacing-small $spacing-medium;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      background-color: $danger-color;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: darken($danger-color, 10%);
+      }
+  
+      i {
+        margin-right: $spacing-small;
+      }
+    }
+  
+    @include respond-to(mobile) {
+      main {
+        grid-template-columns: 1fr;
+      }
+  
+      #groups-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+  

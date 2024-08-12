@@ -15,7 +15,7 @@
         </header>
         
         <main id="group-management-content">
-            <section id="add-group-section">
+            <section id="add-group-section" class="card">
                 <h2>Create New Group</h2>
                 <form id="group-form">
                     <input type="text" id="group-name" placeholder="Group Name" required>
@@ -23,9 +23,11 @@
                 </form>
             </section>
 
-            <section id="groups-list-section">
+            <section id="groups-list-section" class="card">
                 <h2>Existing Groups</h2>
-                <div id="groups-list"></div>
+                <div id="groups-list" class="bento-grid"> <!-- Add class for grid styling -->
+                    <!-- Group items will be dynamically added here -->
+                </div>
             </section>
         </main>
 
