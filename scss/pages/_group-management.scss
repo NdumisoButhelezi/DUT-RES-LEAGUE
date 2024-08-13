@@ -1,198 +1,335 @@
+// scss/pages/_group-management.scss
+
 .group-management {
-    @include dashboard-common;
-  
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: $spacing-medium;
+  @include dashboard-common;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $spacing-medium;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-large;
+
+    h1 {
+      color: $primary-color;
+      margin: 0;
     }
 
-    .bento-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust minmax value as needed */
-        gap: 20px; /* Space between grid items */
-        padding: 20px; /* Padding around the grid */
-    }
-    
-    .group-item {
-        background-color: #f8f9fa; /* Light grey background */
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        border: 1px solid #dee2e6; /* Light border */
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .bento-grid {
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Smaller min-width for smaller screens */
-        }
-    }
-    
-  
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: $spacing-large;
-  
-      h1 {
-        color: $primary-color;
-        margin: 0;
+    .back-link {
+      @include button;
+      background-color: $secondary-color;
+      color: $text-color;
+
+      &:hover {
+        background-color: darken($secondary-color, 10%);
       }
-  
-      .back-link {
-        padding: $spacing-small $spacing-medium;
-        font-size: 16px;
-        font-weight: bold;
-        color: $text-color;
-        background-color: $secondary-color;
+
+      i {
+        margin-right: $spacing-small;
+      }
+    }
+  }
+
+  main {
+    display: grid;
+    gap: $spacing-large;
+  }
+
+  .card {
+    background-color: white;
+    padding: $spacing-medium;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      color: $primary-color;
+      border-bottom: 2px solid $secondary-color;
+      padding-bottom: $spacing-small;
+      margin-top: 0;
+      margin-bottom: $spacing-medium;
+    }
+  }
+
+  #add-group-section {
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-medium;
+
+      input {
+        padding: $spacing-small;
         border-radius: 5px;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-  
+        border: 1px solid $border-color;
+      }
+
+      button {
+        @include button;
+        background-color: $primary-color;
+        color: white;
+
         &:hover {
-          background-color: darken($secondary-color, 10%);
+          background-color: darken($primary-color, 10%);
         }
-  
+
         i {
           margin-right: $spacing-small;
         }
       }
     }
-  
-    main {
+  }
+
+  #groups-list-section {
+    .bento-grid {
       display: grid;
-      gap: $spacing-large;
-  
-      .card {
-        background-color: white;
-        padding: $spacing-medium;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
-        h2 {
-          color: $primary-color;
-          border-bottom: 2px solid $secondary-color;
-          padding-bottom: $spacing-small;
-          margin-top: 0;
-          margin-bottom: $spacing-medium;
-        }
-      }
-  
-      #add-group-section {
-        form {
-          display: flex;
-          flex-direction: column;
-          gap: $spacing-medium;
-  
-          input, button {
-            padding: $spacing-small;
-            border-radius: 5px;
-            border: 1px solid $border-color;
-          }
-  
-          button {
-            @include button;
-            background-color: $primary-color;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-  
-            &:hover {
-              background-color: darken($primary-color, 10%);
-            }
-  
-            i {
-              margin-right: $spacing-small;
-            }
-          }
-        }
-      }
-  
-      #groups-list-section {
-        /* Assuming the Bento Grid is applied to the #groups-list */
-#groups-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.group-item {
-    background-color: #add8e6; /* Light blue background for cardholders */
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border: 1px solid #ddd; /* Light border */
-}
-
-.group-item h3 {
-    margin-bottom: 10px;
-}
-
-.group-item p {
-    margin-bottom: 10px;
-}
-
-.group-item select, .group-item button {
-    margin-bottom: 10px;
-}
-
-.group-item button {
-    padding: 10px 20px; /* Good size for buttons */
-    background-color: #1f64ad; /* Example blue color */
-    color: white;
-    border: round;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 14px; /* Adjust font size for readability */
-}
-
-.group-item button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    #groups-list {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust for smaller screens */
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: $spacing-medium;
     }
-}
 
-      }
-    }
-  
-    #logout-button {
-      display: block;
-      margin: $spacing-large auto 0;
-      padding: $spacing-small $spacing-medium;
-      font-size: 16px;
-      font-weight: bold;
-      color: white;
-      background-color: $danger-color;
+    .group-item {
+      background-color: $background-color;
+      padding: $spacing-medium;
       border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-  
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
       &:hover {
-        background-color: darken($danger-color, 10%);
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       }
-  
+
+      h3 {
+        color: $primary-color;
+        margin-top: 0;
+        margin-bottom: $spacing-small;
+      }
+
+      p {
+        margin: $spacing-small 0;
+      }
+
+      select {
+        width: 100%;
+        padding: $spacing-small;
+        margin-bottom: $spacing-small;
+        border-radius: 5px;
+        border: 1px solid $border-color;
+      }
+
+      button {
+        @include button;
+        margin-right: $spacing-small;
+        margin-bottom: $spacing-small;
+        font-size: 14px;
+
+        &.btn-add {
+          background-color: $primary-color;
+          color: white;
+        }
+
+        &.btn-edit {
+          background-color: $secondary-color;
+          color: $text-color;
+        }
+
+        &.btn-delete {
+          background-color: $danger-color;
+          color: white;
+        }
+
+        &:hover {
+          filter: brightness(90%);
+        }
+      }
+
+      ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: $spacing-small 0;
+
+        li {
+          margin-bottom: $spacing-small;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          button {
+            padding: $spacing-small;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    .team-select {
+      width: 100%;
+      padding: $spacing-small;
+      margin-bottom: $spacing-small;
+      border-radius: 5px;
+      border: 1px solid $border-color;
+      background-color: white;
+      font-size: 14px;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-small;
+      margin-bottom: $spacing-small;
+    }
+
+    .btn {
+      flex: 1;
+      min-width: 100px;
+      padding: $spacing-small;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.1s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+
       i {
         margin-right: $spacing-small;
       }
     }
-  
-    @include respond-to(mobile) {
-      main {
-        grid-template-columns: 1fr;
+
+    .btn-add {
+      background-color: $primary-color;
+      color: white;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
       }
-  
-      #groups-list {
-        grid-template-columns: 1fr;
+    }
+
+    .btn-edit {
+      background-color: $secondary-color;
+      color: $text-color;
+
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+    }
+
+    .btn-delete {
+      background-color: $danger-color;
+      color: white;
+
+      &:hover {
+        background-color: darken($danger-color, 10%);
+      }
+    }
+
+    .team-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      .team-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: $spacing-small;
+        background-color: lighten($background-color, 5%);
+        border-radius: 5px;
+        margin-bottom: $spacing-small;
+
+        span {
+          font-weight: bold;
+        }
+
+        .btn-remove {
+          background-color: $danger-color;
+          color: white;
+          padding: $spacing-small;
+          font-size: 12px;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: darken($danger-color, 10%);
+          }
+
+          i {
+            margin-right: $spacing-small;
+          }
+        }
       }
     }
   }
-  
+
+  .message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: $spacing-small $spacing-medium;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideIn 0.3s forwards, fadeOut 0.5s 4.5s forwards;
+
+    &.success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    &.error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+  }
+
+  @keyframes slideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+    }
+  }
+}
+
+  #logout-button {
+    @include button;
+    display: block;
+    margin: $spacing-large auto 0;
+    background-color: $danger-color;
+    color: white;
+
+    &:hover {
+      background-color: darken($danger-color, 10%);
+    }
+
+    i {
+      margin-right: $spacing-small;
+    }
+  }
+
+  @include respond-to(mobile) {
+    .bento-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+

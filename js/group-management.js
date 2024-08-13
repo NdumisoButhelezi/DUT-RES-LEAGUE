@@ -44,17 +44,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 groupElement.innerHTML = `
                     <h3>${group.name}</h3>
                     <p>Teams: ${group.teams.length}</p>
-                    <select id="team-select-${groupDoc.id}">
+                    <select id="team-select-${groupDoc.id}" class="team-select">
                         <option value="">Select Team</option>
                     </select>
-                    <button onclick="addTeamToGroup('${groupDoc.id}')">Add Team</button>
-                    <button onclick="editGroup('${groupDoc.id}', '${group.name}')">Edit</button>
-                    <button onclick="deleteGroup('${groupDoc.id}')">Delete</button>
-                    <ul id="team-list-${groupDoc.id}"></ul>
+                    <div class="button-group">
+                        <button onclick="addTeamToGroup('${groupDoc.id}')" class="btn btn-add"><i class="fas fa-plus"></i> Add Team</button>
+                        <button onclick="editGroup('${groupDoc.id}', '${group.name}')" class="btn btn-edit"><i class="fas fa-edit"></i> Edit</button>
+                        <button onclick="deleteGroup('${groupDoc.id}')" class="btn btn-delete"><i class="fas fa-trash"></i> Delete</button>
+                    </div>
+                    <ul id="team-list-${groupDoc.id}" class="team-list"></ul>
                 `;
                 groupsList.appendChild(groupElement);
                 
-                const teamSelect = document.getElementById(`team-select-${groupDoc.id}`);
+                const teamSelect = groupElement.querySelector(`#team-select-${groupDoc.id}`);
                 allTeams.forEach(team => {
                     if (!assignedTeams.has(team.id) && !group.teams.includes(team.id)) {
                         const option = new Option(team.name, team.id);
@@ -87,8 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             groupTeams.forEach((teamId) => {
                 const li = document.createElement('li');
-                li.textContent = teamsMap.get(teamId) || 'Unknown Team';
-                li.innerHTML += ` <button onclick="removeTeamFromGroup('${groupId}', '${teamId}')">Remove</button>`;
+                li.className = 'team-item';
+                li.innerHTML = `
+                    <span>${teamsMap.get(teamId) || 'Unknown Team'}</span>
+                    <button onclick="removeTeamFromGroup('${groupId}', '${teamId}')" class="btn btn-remove"><i class="fas fa-times"></i> Remove</button>
+                `;
                 teamList.appendChild(li);
             });
         } catch (error) {
@@ -104,22 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!teamId) return;
 
         try {
-            // Check if the team is already assigned to another group
-            const groupsSnapshot = await getDocs(collection(db, "groups"));
-            let isTeamAssigned = false;
-
-            groupsSnapshot.forEach((groupDoc) => {
-                const group = groupDoc.data();
-                if (group.teams.includes(teamId)) {
-                    isTeamAssigned = true;
-                }
-            });
-
-            if (isTeamAssigned) {
-                showMessage("This team is already assigned to another group.", true);
-                return;
-            }
-
             const groupRef = doc(db, "groups", groupId);
             await updateDoc(groupRef, {
                 teams: arrayUnion(teamId)
@@ -180,9 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showMessage(message, isError = false) {
         const messageElement = document.createElement('div');
         messageElement.textContent = message;
-        messageElement.style.padding = '10px';
-        messageElement.style.marginBottom = '10px';
-        messageElement.style.backgroundColor = isError ? '#ffcccc' : '#ccffcc';
+        messageElement.className = isError ? 'message error' : 'message success';
         document.body.insertBefore(messageElement, document.body.firstChild);
         setTimeout(() => messageElement.remove(), 5000);
     }
